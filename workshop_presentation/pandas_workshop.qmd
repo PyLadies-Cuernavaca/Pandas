@@ -1,0 +1,129 @@
+---
+title: "Introducción a Análisis de Datos con Python"
+subtitle: "Primeros pasos con pandas"
+author: "Chica Dev"
+date: "Septiembre 27, 2024"
+format:
+   revealjs:
+      slide-number: true
+      show-slide-number: print
+      theme: serif
+      chalkboard: 
+         buttons: true
+      preview-links: auto
+      logo: https://pyladies.com/assets/images/pylady_geek.png
+      footer: <https://pyladies.com/>
+
+---
+
+## Objetivos del taller
+- Introducir el uso de la librería Pandas para el análisis de datos.
+- Aprender a hacer carga de datos, limpieza, filtros entre otras operaciones con nuestros datos.
+- Realizar ejercicios prácticos aplicados a casos reales.
+
+## Introducción a pandas
+**¿Qué es pandas?**
+
+Librería de python para la manipulación y análisis de datos.
+
+**Características clave**
+
+- Estructuras de datos flexibles.
+- Herramientas de limpieza y manipulación.
+- Soporte para datos en diferentes formatos.
+
+## ¿Qué es un ```DataFrame```?
+
+Estructura de datos bidimensional, similar a una tabla.
+![](https://pandas.pydata.org/docs/_images/01_table_dataframe.svg){fig-alt="Representación de un data table en Pandas"}
+
+
+Cada columna son: ```Series```
+  
+## Ejemplo de Creación
+
+```python
+import pandas as pd
+df = pd.DataFrame(
+    {
+        "Name": [
+            "Braund, Mr. Owen Harris",
+            "Allen, Mr. William Henry",
+            "Bonnell, Miss. Elizabeth",
+        ],
+        "Age": [22, 35, 58],
+        "Sex": ["male", "male", "female"],
+    }
+)
+
+```
+
+## Importación de Datos
+**Formatos Soportados**
+
+csv, excel, txt, json, sql, parquet
+
+**Ejemplo de Importación**
+
+```python
+import pandas as pd
+df = pd.read_csv('data/shelter-animal-outcomes/train.csv')
+```
+
+## Manipulación de Datos
+Selección y Filtrado
+```python
+return_to_owner = df[df['OutcomeType'] == 'Return_to_owner']
+```
+
+Agrupamiento y Agregación
+```python
+# la edad promedio de los animales
+df.AgeDays.mean() / 365
+```
+
+Tratamiento de Valores Nulos
+```python
+df = df.fillna(0, inplace=True)
+```
+
+Eliminación de Duplicados
+```python
+df.drop_duplicates(subset='AnimalID', keep='first', inplace=True)
+```
+
+## Ejercicio 1: Muchos intentos 😭
+**Contexto:**
+
+Se tiene un archivo con las calificaciones de un examen de un grupo. En el listado algunas personas tuvieron la posibilidad de realizar el examen más de una vez. 
+
+**Requerimiento:**
+
+En el archivo que tienen varias calificaciones de una misma persona, se requiere quedarnos solo con la calificación del **primer** intento.
+
+## Ejercicio 2: Sistemas cristalinos 💍
+**Contexto:**
+
+En el área de cristalografía se cuenta con una base de datos abiertas, para que los investigadores y estudiantes puedan hacer análisis.
+
+**Requerimiento:**
+
+A partir de los datos, hacer una clasificación para identificar la estructura del cristal y calcular su volumen.
+
+## Ejercicio 3: Análisis FODA ✍
+**Contexto:**
+
+Una empresa hace una encuesta anual a sus empleados. Te compartieron los resultados de estas respuestas para identificar las fortalezas y oportunidades que tiene la empresa.
+ 
+**Requerimiento:**
+
+Para crear la propuesta decides hacer un análisis de texto para identificar que es lo que mencionan más los empleados.
+
+
+## Dudas
+![](https://media1.tenor.com/m/u5uXD3icJ1kAAAAC/simpsons-homer-simpson.gif){fig-alt="Homero Simpson escondiéndose en césped"}
+
+## Nos seguimos escribiendo por redes sociales.
+Contacto
+
+<https://www.linkedin.com/in/chicadev/>
